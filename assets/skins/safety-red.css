@@ -1,0 +1,32 @@
+/* 报告皮肤：安全红。消防/应急/安全生产/质量管控。
+   与 hb-system-mockup 的 skins/safety-red.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   用法：python3 scripts/apply_skin.py 报告.html safety-red */
+:root {
+  --paper: #F7F6F5;
+  --surface: #FFFFFF;
+  --ink: #261E1C;
+  --ink-soft: #5C4F4B;
+  --muted: #8B7D78;
+  --accent: #9E332C;
+  --accent-soft: #F4E1DF;
+  --gold: #C98A2E;
+  --gold-soft: #F8EDDB;
+  --line: #EAE6E5;
+  --warn-bg: #F6EFE3;
+  --warn-edge: #C98A2E;
+}
+
+:root[data-theme="dark"] {
+  --paper: #170F0E;
+  --surface: #221715;
+  --ink: #EDE3E1;
+  --ink-soft: #C2B2AE;
+  --muted: #8D7E7A;
+  --accent: #E58B82;
+  --accent-soft: #3A1D1A;
+  --gold: #E0AE62;
+  --gold-soft: #2E2314;
+  --line: #332624;
+  --warn-bg: #2A2013;
+  --warn-edge: #E0AE62;
+}

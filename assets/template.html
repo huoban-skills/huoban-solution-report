@@ -1,0 +1,340 @@
+<title>{{客户简称}} 数字化建议报告</title>
+<style>
+:root {
+  --paper: #F5F6F4;
+  --surface: #FFFFFF;
+  --ink: #1C2530;
+  --ink-soft: #4A5866;
+  --muted: #7A8794;
+  --accent: #24466B;
+  --accent-soft: #E4EAF1;
+  --gold: #A67C3D;
+  --gold-soft: #F3ECDF;
+  --line: #DCE0DC;
+  --warn-bg: #F6EFE3;
+  --warn-edge: #B98A3F;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #10161D; --surface: #18212B; --ink: #E4E8E4; --ink-soft: #B4BFC8;
+    --muted: #7E8B97; --accent: #85ACD4; --accent-soft: #1F2E40; --gold: #C9A063;
+    --gold-soft: #2C2517; --line: #2A3541; --warn-bg: #26211A; --warn-edge: #C9A063;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10161D; --surface: #18212B; --ink: #E4E8E4; --ink-soft: #B4BFC8;
+  --muted: #7E8B97; --accent: #85ACD4; --accent-soft: #1F2E40; --gold: #C9A063;
+  --gold-soft: #2C2517; --line: #2A3541; --warn-bg: #26211A; --warn-edge: #C9A063;
+}
+:root[data-theme="light"] {
+  --paper: #F5F6F4; --surface: #FFFFFF; --ink: #1C2530; --ink-soft: #4A5866;
+  --muted: #7A8794; --accent: #24466B; --accent-soft: #E4EAF1; --gold: #A67C3D;
+  --gold-soft: #F3ECDF; --line: #DCE0DC; --warn-bg: #F6EFE3; --warn-edge: #B98A3F;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 16px; line-height: 1.85; margin: 0;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px 96px; }
+
+header.cover { padding: 64px 0 32px; border-bottom: 3px double var(--line); }
+.cover .kicker {
+  font-size: 13px; letter-spacing: 0.35em; color: var(--gold);
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif; margin-bottom: 18px;
+}
+.cover h1 {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  font-size: clamp(26px, 4.4vw, 38px); font-weight: 700;
+  line-height: 1.35; margin: 0; text-wrap: balance; color: var(--ink);
+}
+blockquote.meta {
+  margin: 22px 0 0; padding: 0;
+  font-size: 12.5px; color: var(--ink-soft); opacity: .72; line-height: 1.9;
+}
+blockquote.meta div { margin: 0; }
+blockquote.meta b { color: var(--ink-soft); font-weight: 400; }
+
+.objective {
+  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold);
+  padding: 22px 26px; margin: 28px 0 0; font-size: 14.5px; color: var(--ink-soft);
+}
+.objective .lbl {
+  font-size: 12px; letter-spacing: 0.3em; color: var(--gold); font-weight: 700;
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  display: block; margin-bottom: 12px;
+}
+
+h2 {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  font-size: 23px; font-weight: 700; color: var(--ink);
+  margin: 60px 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+  text-wrap: balance;
+}
+h3 { font-size: 16.5px; font-weight: 700; color: var(--accent); margin: 30px 0 8px; }
+p { margin: 0 0 15px; }
+strong { color: var(--ink); }
+ul, ol { padding-left: 1.4em; margin: 0 0 15px; }
+li { margin: 7px 0; }
+li::marker { color: var(--gold); }
+
+.factlist { margin: 20px 0; }
+.factlist dl { margin: 0; }
+.factlist dt { font-weight: 700; color: var(--accent); font-size: 14.5px; margin-top: 18px; }
+.factlist dt:first-child { margin-top: 0; }
+.factlist dd { margin: 4px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+
+.pains { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 22px 0; }
+.pains .pn {
+  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px;
+}
+.pains .pn .tag { font-size: 11.5px; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; }
+.pains .pn .nm { font-size: 15.5px; font-weight: 700; color: var(--ink); margin: 4px 0 8px; line-height: 1.5; }
+.pains .pn .desc { font-size: 13px; color: var(--ink-soft); line-height: 1.75; }
+
+.note { background: var(--gold-soft); border-left: 3px solid var(--gold); padding: 13px 18px; margin: 20px 0; font-size: 14px; color: var(--ink-soft); }
+.note b { color: var(--gold); }
+
+.feat { display: block; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.feat:last-of-type { border-bottom: none; }
+.feat .txt { margin-bottom: 18px; }
+.feat .txt h3 { margin: 0 0 4px; font-size: 17px; color: var(--accent); }
+.feat .txt .fn { font-size: 11.5px; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; margin-bottom: 12px; }
+.feat .txt ul { margin: 0; padding-left: 1.1em; }
+.feat .txt li { font-size: 14px; color: var(--ink-soft); margin: 6px 0; line-height: 1.75; }
+.feat .fig { background: var(--surface); border: 1px solid var(--line); padding: 10px; }
+.feat .fig.shot { background: transparent; border: none; padding: 0; }
+.feat .fig.shot img { display: block; width: 100%; max-width: 100%; height: auto; }
+
+.phase { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 22px 0; }
+.phase .p {
+  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); padding: 14px 16px;
+}
+.phase .p .stage { font-size: 11.5px; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; }
+.phase .p .nm { font-size: 15.5px; font-weight: 700; color: var(--ink); margin: 4px 0 2px; }
+.phase .p .dur { font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+.phase .p .desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; }
+
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 14px; }
+th {
+  text-align: left; font-weight: 600; color: var(--accent);
+  border-bottom: 2px solid var(--accent); padding: 9px 12px 7px; white-space: nowrap;
+}
+td { border-bottom: 1px solid var(--line); padding: 10px 12px; vertical-align: top; color: var(--ink-soft); }
+td:first-child { color: var(--ink); font-weight: 600; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+tr.total td { border-top: 2px solid var(--accent); border-bottom: none; color: var(--ink); font-weight: 700; font-size: 15px; }
+.table-scroll { overflow-x: auto; }
+
+.value { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 22px 0; }
+.value .v { background: var(--surface); border: 1px solid var(--line); padding: 16px 20px; }
+.value .v h4 { margin: 0 0 8px; font-size: 15px; color: var(--accent); }
+.value .v ul { margin: 0; padding-left: 1.2em; }
+.value .v li { font-size: 14px; color: var(--ink-soft); margin: 6px 0; }
+
+ol.actions { counter-reset: act; list-style: none; padding-left: 0; }
+ol.actions li {
+  counter-increment: act; position: relative; padding-left: 42px; margin: 14px 0; font-size: 15px; color: var(--ink-soft);
+}
+ol.actions li::before {
+  content: counter(act); position: absolute; left: 0; top: 2px;
+  width: 26px; height: 26px; line-height: 26px; text-align: center;
+  background: var(--accent); color: var(--surface); font-size: 13px; font-weight: 700;
+  font-family: "Noto Serif SC", "Songti SC", serif;
+}
+ol.actions li b { color: var(--ink); }
+
+footer.colophon {
+  margin-top: 72px; padding-top: 20px; border-top: 3px double var(--line);
+  font-size: 13px; color: var(--muted);
+}
+a { color: var(--accent); }
+@media print {
+  @page { margin: 0; }
+  .wrap { max-width: 100%; padding-top: 40px; }
+  .feat .fig.shot img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .pains .pn, .phase .p, table, .value .v, .note, .feat .fig.shot { break-inside: avoid; }
+  .feat { break-before: page; break-inside: avoid; }
+  h2, h3, .feat .fn { break-after: avoid; }
+  .featwrap { width: 100%; margin-left: 0; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="cover">
+  <div class="kicker">{{行 业 词，字 间 留 空 格}}</div>
+  <h1>{{客户简称}}数字化建议报告</h1>
+</header>
+
+<blockquote class="meta">
+  <div><b>项目名称：</b>{{业务域}}在线化管理项目</div>
+  <div><b>服务对象：</b>{{客户全称}}</div>
+  <div><b>出品方：</b>伙伴云</div>
+  <div><b>报告日期：</b>{{YYYY 年 M 月 D 日}}</div>
+</blockquote>
+
+<div class="objective">
+  <span class="lbl">核 心 目 标</span>
+  {{一段：以什么为切入点，用什么替代现状，达成什么可见效果，并划出什么边界}}
+</div>
+
+<h2>一、企业与现状概览</h2>
+
+<div class="factlist">
+<dl>
+  <dt>行业与业务模式</dt>
+  <dd>{{做什么生意、上下游是谁、按什么单位开展、进展到哪}}</dd>
+
+  <dt>组织规模与协作结构</dt>
+  <dd>{{团队规模与构成、外部协作方、决策层对数据的诉求}}</dd>
+
+  <dt>数字化现状</dt>
+  <dd>{{现在用什么工具管什么数据、协作断点在哪、是否有在线系统}}</dd>
+
+  <dt>项目目标</dt>
+  <dd>{{一句话：构建什么、打通什么、实现什么}}</dd>
+</dl>
+</div>
+
+<h2>二、核心痛点</h2>
+
+<p>基于本次业务沟通所反映的实际运行状况，现状诊断集中于以下{{N}}个方面。</p>
+
+<div class="pains">
+  <!-- 诊断卡按需复制，不超过 4 个 -->
+  <div class="pn">
+    <div class="tag">诊 断 一</div>
+    <div class="nm">{{名词短语，点出缺失或失控的对象}}</div>
+    <div class="desc">{{两三短句：现状事实 + 造成的后果}}</div>
+  </div>
+</div>
+
+<h2>三、建设目标</h2>
+
+<p>结合企业当前的业务阶段与数字化基础，本期建设不以功能覆盖的完整性为导向，而以<strong>{{八到十二字的核心目标}}</strong>为核心目标，具体分解为{{N}}项。</p>
+
+<!-- 目标按需复制，不超过 4 个 -->
+<h3>目标一：{{动词开头的一句话目标}}</h3>
+<p>{{一段：做成什么样 + 终结/替代什么现状}}</p>
+
+<h2>四、数字化解决方案</h2>
+
+<div class="note"><b>说明：</b>在服务包交付模式下，以下能力模块的实现细节与建设优先级，可根据项目推进过程中的实际反馈进行灵活调整与迭代优化，无需在项目启动阶段一次性锁定全部范围。文中各示意图用于说明数据结构与业务逻辑，界面样式以实际搭建结果为准。</div>
+
+<div class="featwrap">
+<!-- 模块按需复制。成文阶段只有 .txt，不放图不留占位；
+     用户确认配图后在 .txt 后追加：
+     <div class="fig shot"><img alt="与 h3 完全一致" src="由 embed_figures.py 填充"></div> -->
+<div class="feat">
+  <div class="txt">
+    <h3>{{四字，四字}}</h3>
+    <div class="fn">{{模块业务名}}</div>
+    <ul>
+      <li>{{要点，3 至 4 条}}</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<h2>五、数字化实施路径</h2>
+
+<p>项目采用分阶段推进方式，各阶段交付成果明确、可独立验收，整体周期约{{X 至 Y 周}}。</p>
+
+<div class="phase">
+  <!-- 阶段卡按需复制，通常 4 个 -->
+  <div class="p">
+    <div class="stage">阶 段 一</div>
+    <div class="nm">{{阶段名}}</div>
+    <div class="dur">预计 {{X 至 Y 周}}</div>
+    <div class="desc">{{这个阶段做什么、交付什么}}</div>
+  </div>
+</div>
+
+<h2>六、投入与报价</h2>
+
+<h3>A. 伙伴云平台订阅</h3>
+<div class="table-scroll">
+<table>
+  <tr><th>版本</th><th>规格说明</th><th class="num">单价（元）</th><th class="num">数量</th><th class="num">总价（元）</th></tr>
+  <tr>
+    <td>{{版本官方名}}</td>
+    <td>{{该客户用得上的能力 + 适配当前团队规模，事实见 references/platform-pricing.md}}</td>
+    <td class="num">{{单价}}</td>
+    <td class="num">1 年</td>
+    <td class="num">{{总价}}</td>
+  </tr>
+</table>
+</div>
+
+<h3>B. 伙伴云服务包</h3>
+<div class="table-scroll">
+<table>
+  <tr><th>项目</th><th>规格说明</th><th class="num">单价（元）</th><th class="num">数量</th><th class="num">总价（元）</th></tr>
+  <tr>
+    <td>服务包</td>
+    <td>零代码代搭建服务（不含平台订阅费用），20 专家工时 / 包；涵盖需求沟通、结构设计、搭建实施、数据导入、看板配置与操作培训全过程</td>
+    <td class="num">7,800</td>
+    <td class="num">{{N}} 包</td>
+    <td class="num">{{总价}}</td>
+  </tr>
+  <tr class="total">
+    <td>首年投入合计</td>
+    <td></td>
+    <td class="num"></td>
+    <td class="num"></td>
+    <td class="num">{{合计}}</td>
+  </tr>
+</table>
+</div>
+
+<div class="note">
+<b>备注一 · 平台版本选择说明。</b>{{当前额度对本场景已充分适配 → 何种情形再评估升级 → 历史数据与配置可平滑延续}}<br><br>
+<b>备注二 · 服务包起售与核销方式。</b>{{起售单位与建议包数 → 核销透明机制 → 需求沟通同样计入，事实见 references/service-package.md}}<br><br>
+<b>备注三 · 后续迭代方式。</b>项目交付后新增的功能调整需求，按实际耗用工时从剩余服务包中核销；服务包工时用尽后可按需追加采购，不设强制续购要求。
+</div>
+
+<h2>七、预期核心业务价值</h2>
+
+<div class="value">
+  <div class="v">
+    <h4>对于决策层</h4>
+    <ul>
+      <li>{{3 至 4 条，对应诊断与目标}}</li>
+    </ul>
+  </div>
+  <div class="v">
+    <h4>对于一线团队</h4>
+    <ul>
+      <li>{{3 至 4 条}}</li>
+    </ul>
+  </div>
+</div>
+
+<h2>八、下一步行动清单</h2>
+
+<ol class="actions">
+  <li><b>确认诊断结论与建设框架。</b>双方决策层确认本报告提出的现状诊断结论、{{N}}项建设目标与能力模块范围，就本期建设的边界达成一致。</li>
+  <li><b>提供现有业务表格样本。</b>企业方提供当前在用的{{核心业务表}}样本，作为结构设计与信息项取舍的依据。</li>
+  <li><b>签署合同并启动项目。</b>双方签署项目合同及服务包协议，企业方完成付款，项目正式立项，进入需求梳理阶段。</li>
+  <li><b>组建项目对接机制。</b>双方各指定项目对接人，建立协作沟通群，明确工时核销的确认流程与阶段验收标准。</li>
+  <li><b>召开项目启动会。</b>完成实施排期确认，同步各阶段交付节点与企业方需配合事项，正式进入实施。</li>
+</ol>
+
+<h2>九、附件</h2>
+
+<ul>
+  <li><b>附件一：</b><a href="https://huobangroup.feishu.cn/wiki/WYjrwrfSiiRLDkkmCDUcNsbNn5Y?from=from_copylink">服务包说明文档（工时构成、核销规则与服务范围界定）</a></li>
+  <li><b>附件二：</b><a href="https://www.huoban.com/pricing.html">伙伴云平台各版本能力与规格对照表</a></li>
+  <li><b>附件三：</b><a href="https://www.huoban.com/">伙伴云公司介绍与解决方案说明</a></li>
+  <li><b>附件四：</b><a href="https://huobangroup.feishu.cn/wiki/GwqbwFqafieQC0ks1oNcYbkmnwb?from=from_copylink">平台数据安全与信息保护说明</a></li>
+</ul>
+
+<footer class="colophon">
+  <p>本报告依据 {{YYYY 年 M 月 D 日}}业务沟通记录整理，其中现状描述与需求要点均来源于该次沟通所反映的实际情况。报告中的实施周期为基于同等规模项目的经验估算，最终排期以需求梳理阶段确认的范围为准。报价内容有效期以正式商务函件为准。</p>
+  <p>本报告为商务沟通材料，未经双方书面同意不得向第三方披露。</p>
+</footer>
+
+</div>

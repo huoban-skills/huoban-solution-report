@@ -1,0 +1,32 @@
+/* 报告皮肤：温暖人文（暖陶）。康养/教育/消费服务/民生类。
+   与 hb-system-mockup 的 skins/warm-terra.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   用法：python3 scripts/apply_skin.py 报告.html warm-terra */
+:root {
+  --paper: #FAF6F1;
+  --surface: #FFFFFF;
+  --ink: #382A1E;
+  --ink-soft: #6A5847;
+  --muted: #97897A;
+  --accent: #A9552B;
+  --accent-soft: #F5E3D3;
+  --gold: #8A6D3B;
+  --gold-soft: #F3ECDC;
+  --line: #EADFD3;
+  --warn-bg: #F6EFE3;
+  --warn-edge: #C08A45;
+}
+
+:root[data-theme="dark"] {
+  --paper: #1A130E;
+  --surface: #241A13;
+  --ink: #EDE4DA;
+  --ink-soft: #C4B5A6;
+  --muted: #8F8072;
+  --accent: #E09B6F;
+  --accent-soft: #3A2417;
+  --gold: #D9B27C;
+  --gold-soft: #2E2416;
+  --line: #33271D;
+  --warn-bg: #2A2013;
+  --warn-edge: #D9B27C;
+}
