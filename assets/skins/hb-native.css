@@ -1,5 +1,5 @@
 /* 报告皮肤：商务蓝。伙伴云产品同色系，科技感、通用。软件/信息服务、想传达产品感的客户。
-   与 hb-system-mockup 的 skins/hb-native.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   与 huoban-image-design 的 skins/hb-native.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html hb-native */
 :root {
   --paper: #F5F7FA;

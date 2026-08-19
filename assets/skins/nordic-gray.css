@@ -1,5 +1,5 @@
 /* 报告皮肤：北欧冷灰（Nord 色系）。冷静克制、工具感。SaaS/研发/制造类客户。
-   与 hb-system-mockup 的 skins/nordic-gray.css 同名同气质：报告选定皮肤后，配图用同名皮肤。
+   与 huoban-image-design 的 skins/nordic-gray.css 同名同气质：报告选定皮肤后，配图用同名皮肤。
    用法：python3 scripts/apply_skin.py 报告.html nordic-gray */
 :root {
   --paper: #F5F7F9;

@@ -1,5 +1,5 @@
 /* 报告皮肤：柔和粉彩（Catppuccin Latte/Mocha 色系）。轻快柔和。教育/文创/年轻团队。
-   与 hb-system-mockup 的 skins/latte-pastel.css 同名同气质：报告选定皮肤后，配图用同名皮肤。
+   与 huoban-image-design 的 skins/latte-pastel.css 同名同气质：报告选定皮肤后，配图用同名皮肤。
    用法：python3 scripts/apply_skin.py 报告.html latte-pastel */
 :root {
   --paper: #EFF1F5;

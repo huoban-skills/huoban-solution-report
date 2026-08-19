@@ -1,5 +1,5 @@
 /* 报告皮肤：中式雅韵（黛青＋朱砂）。文化/茶/中医/传统手工/政务文化。
-   与 hb-system-mockup 的 skins/ink-elegant.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   与 huoban-image-design 的 skins/ink-elegant.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html ink-elegant */
 :root {
   --paper: #F6F4EC;

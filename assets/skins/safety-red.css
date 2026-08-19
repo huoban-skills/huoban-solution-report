@@ -1,5 +1,5 @@
 /* 报告皮肤：安全红。消防/应急/安全生产/质量管控。
-   与 hb-system-mockup 的 skins/safety-red.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   与 huoban-image-design 的 skins/safety-red.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html safety-red */
 :root {
   --paper: #F7F6F5;

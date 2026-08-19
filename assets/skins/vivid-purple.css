@@ -1,5 +1,5 @@
 /* 报告皮肤：活力紫。互联网/创新业务/年轻团队。
-   与 hb-system-mockup 的 skins/vivid-purple.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   与 huoban-image-design 的 skins/vivid-purple.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html vivid-purple */
 :root {
   --paper: #F7F6FC;

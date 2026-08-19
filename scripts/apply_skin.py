@@ -2,7 +2,7 @@
 """给报告 HTML 换皮肤：用 assets/skins/<名>.css 的 token 值替换报告里的四个 :root 块。
 
 用法：python3 scripts/apply_skin.py 报告.html navy-gold
-可反复执行（换皮肤、换回默认都行）。皮肤清单见 assets/skins/，与 hb-system-mockup 同名同气质。
+可反复执行（换皮肤、换回默认都行）。皮肤清单见 assets/skins/，与 huoban-image-design 同名同气质。
 """
 import re
 import sys

@@ -1,5 +1,5 @@
 /* 报告皮肤：温暖人文（暖陶）。康养/教育/消费服务/民生类。
-   与 hb-system-mockup 的 skins/warm-terra.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
+   与 huoban-image-design 的 skins/warm-terra.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html warm-terra */
 :root {
   --paper: #FAF6F1;
