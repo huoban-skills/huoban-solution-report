@@ -97,6 +97,14 @@ li::marker { color: var(--gold); }
 .note { background: var(--gold-soft); border-left: 3px solid var(--gold); padding: 13px 18px; margin: 20px 0; font-size: 14px; color: var(--ink-soft); }
 .note b { color: var(--gold); }
 
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px 0; margin: 24px 0 10px; }
+.flow .fs {
+  flex: 1 1 0; min-width: 92px; background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--accent); padding: 10px 8px 9px; text-align: center;
+}
+.flow .fs .nm { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.flow .ar { align-self: center; color: var(--muted); padding: 0 5px; font-size: 14px; }
+
 .feat { display: block; padding: 28px 0; border-bottom: 1px solid var(--line); }
 .feat:last-of-type { border-bottom: none; }
 .feat .txt { margin-bottom: 18px; }
@@ -151,11 +159,14 @@ footer.colophon {
   font-size: 13px; color: var(--muted);
 }
 a { color: var(--accent); }
+
+.objective, .pains .pn, .note, .flow .fs, .phase .p, .value .v { border-radius: 10px; }
+
 @media print {
   @page { margin: 0; }
   .wrap { max-width: 100%; padding-top: 40px; }
   .feat .fig.shot img { width: 100% !important; max-width: 100% !important; height: auto !important; }
-  .pains .pn, .phase .p, table, .value .v, .note, .feat .fig.shot { break-inside: avoid; }
+  .pains .pn, .phase .p, table, .value .v, .note, .flow, .feat .fig.shot { break-inside: avoid; }
   .feat { break-before: page; break-inside: avoid; }
   h2, h3, .feat .fn { break-after: avoid; }
   .featwrap { width: 100%; margin-left: 0; }
@@ -204,7 +215,7 @@ a { color: var(--accent); }
 <p>基于本次业务沟通所反映的实际运行状况，现状诊断集中于以下{{N}}个方面。</p>
 
 <div class="pains">
-  <!-- 诊断卡按需复制，不超过 4 个 -->
+  <!-- 诊断卡按需复制，4 或 6 个（必须偶数，保两列网格不留空位） -->
   <div class="pn">
     <div class="tag">诊 断 一</div>
     <div class="nm">{{名词短语，点出缺失或失控的对象}}</div>
@@ -216,7 +227,7 @@ a { color: var(--accent); }
 
 <p>结合企业当前的业务阶段与数字化基础，本期建设不以功能覆盖的完整性为导向，而以<strong>{{八到十二字的核心目标}}</strong>为核心目标，具体分解为{{N}}项。</p>
 
-<!-- 目标按需复制，不超过 4 个 -->
+<!-- 目标按需复制，3 至 6 项 -->
 <h3>目标一：{{动词开头的一句话目标}}</h3>
 <p>{{一段：做成什么样 + 终结/替代什么现状}}</p>
 
@@ -224,13 +235,23 @@ a { color: var(--accent); }
 
 <div class="note"><b>说明：</b>在服务包交付模式下，以下能力模块的实现细节与建设优先级，可根据项目推进过程中的实际反馈进行灵活调整与迭代优化，无需在项目启动阶段一次性锁定全部范围。文中各示意图用于说明数据结构与业务逻辑，界面样式以实际搭建结果为准。</div>
 
+<p>{{一句话：本期方案沿企业的业务主流程展开，各环节由对应能力模块承接。}}</p>
+
+<div class="flow">
+  <!-- 未来业务全景：环节按业务主流程排，4 至 7 个，环节间插 <div class="ar">→</div>。
+       nm 是业务环节名（≤6 字），只放环节名，不加其他文字 -->
+  <div class="fs"><div class="nm">{{业务环节}}</div></div>
+  <div class="ar">→</div>
+  <div class="fs"><div class="nm">{{业务环节}}</div></div>
+</div>
+
 <div class="featwrap">
 <!-- 模块按需复制。成文阶段只有 .txt，不放图不留占位；
      用户确认配图后在 .txt 后追加：
      <div class="fig shot"><img alt="与 h3 完全一致" src="由 embed_figures.py 填充"></div> -->
 <div class="feat">
   <div class="txt">
-    <h3>{{四字，四字}}</h3>
+    <h3>{{功能点，业务成果：两段大白话，合计 10-18 字，禁四字对偶}}</h3>
     <div class="fn">{{模块业务名}}</div>
     <ul>
       <li>{{要点，3 至 4 条}}</li>

@@ -1,0 +1,32 @@
+/* 报告皮肤：瑞士克莱因蓝。纯白网格感、单一强调色。咨询/专业服务、金融、设计创意等要冷静高级感的客户。
+   与 huoban-image-design 的 skins/swiss-klein.css 同名同气质。
+   用法：python3 scripts/apply_skin.py 报告.html swiss-klein */
+:root {
+  --paper: #F7F7F8;
+  --surface: #FFFFFF;
+  --ink: #17181C;
+  --ink-soft: #45474E;
+  --muted: #808289;
+  --accent: #002FA7;
+  --accent-soft: #E8EDF9;
+  --gold: #B4690E;
+  --gold-soft: #F7EDDE;
+  --line: #E3E4E8;
+  --warn-bg: #F4F0E6;
+  --warn-edge: #B4690E;
+}
+
+:root[data-theme="dark"] {
+  --paper: #121319;
+  --surface: #1B1D26;
+  --ink: #E7E8EC;
+  --ink-soft: #B6B8C2;
+  --muted: #82848E;
+  --accent: #7C9BE8;
+  --accent-soft: #1E2740;
+  --gold: #CE8B3A;
+  --gold-soft: #2C2416;
+  --line: #2C2E3A;
+  --warn-bg: #282216;
+  --warn-edge: #CE8B3A;
+}

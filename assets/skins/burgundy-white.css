@@ -1,0 +1,32 @@
+/* 报告皮肤：勃艮第红。近纯白底＋酒红，编辑杂志气质。高端消费、酒店餐饮、文化传媒、律所等讲格调的客户。
+   与 huoban-image-design 的 skins/burgundy-white.css 同名同气质。
+   用法：python3 scripts/apply_skin.py 报告.html burgundy-white */
+:root {
+  --paper: #FAFAF9;
+  --surface: #FFFFFF;
+  --ink: #1E1B1C;
+  --ink-soft: #4E4649;
+  --muted: #7F787A;
+  --accent: #6D1F2C;
+  --accent-soft: #F6E7EA;
+  --gold: #A0763B;
+  --gold-soft: #F5EDE0;
+  --line: #E6E3E1;
+  --warn-bg: #F4EEE2;
+  --warn-edge: #A0763B;
+}
+
+:root[data-theme="dark"] {
+  --paper: #161314;
+  --surface: #201C1D;
+  --ink: #EAE6E7;
+  --ink-soft: #BDB5B7;
+  --muted: #8A8385;
+  --accent: #D07A88;
+  --accent-soft: #332226;
+  --gold: #C29A5F;
+  --gold-soft: #2C2618;
+  --line: #322D2E;
+  --warn-bg: #2A2618;
+  --warn-edge: #C29A5F;
+}

@@ -1,4 +1,4 @@
-/* 报告皮肤：藏蓝金（默认）。沉稳商务、纸感。通用行业、政企、制造。
+/* 报告皮肤：藏蓝金。沉稳商务、纸感。政企、制造、工程建筑、贸易物流等传统稳重行业。
    与 huoban-image-design 的 skins/navy-gold.css 同名同气质：报告选定皮肤后，配图用同名皮肤，报告与图自动同色系。
    用法：python3 scripts/apply_skin.py 报告.html navy-gold */
 :root {

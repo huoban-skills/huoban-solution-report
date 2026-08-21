@@ -1,0 +1,32 @@
+/* 报告皮肤：晨光蓝。暖橙白晕染到冷蓝白的渐变底，深藏青＋活力橙。物流调度、救援派单、供应链、生活服务等强调效率活力的客户。
+   与 huoban-image-design 的 skins/dawn-blue.css 同名同气质。
+   用法：python3 scripts/apply_skin.py 报告.html dawn-blue */
+:root {
+  --paper: linear-gradient(150deg, #FDFAF6 0%, #F8F9FB 30%, #EFF3F8 100%);
+  --surface: #FFFFFF;
+  --ink: #16334A;
+  --ink-soft: #40566B;
+  --muted: #74869A;
+  --accent: #124C77;
+  --accent-soft: #E3EEF7;
+  --gold: #C9720A;
+  --gold-soft: #FDEFDD;
+  --line: #DFE6ED;
+  --warn-bg: #FDF2E2;
+  --warn-edge: #C9720A;
+}
+
+:root[data-theme="dark"] {
+  --paper: linear-gradient(150deg, #131A22 0%, #0F1B26 100%);
+  --surface: #16222E;
+  --ink: #E3E9EF;
+  --ink-soft: #B2BFCB;
+  --muted: #7C8B99;
+  --accent: #7FB2DC;
+  --accent-soft: #1C3247;
+  --gold: #F0A24C;
+  --gold-soft: #332718;
+  --line: #2B3947;
+  --warn-bg: #2E2618;
+  --warn-edge: #F0A24C;
+}

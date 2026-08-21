@@ -6,9 +6,65 @@
 
 用法: python3 make_pdf.py 报告.html [--paged] [-o 输出.pdf]
 """
-import re, subprocess, tempfile, pathlib, argparse, sys
+import re, subprocess, tempfile, pathlib, argparse, sys, os, shutil
 
-CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+def _bootstrap_bundled_chrome():
+    """Linux 下从 skill 内置分卷解压 chrome-headless-shell 到 ~，成功返回二进制路径。
+    分卷随 huoban-image-design skill 分发（assets/chrome/chs_vol_*），零下载。"""
+    if not sys.platform.startswith('linux'):
+        return None
+    import zipfile
+    here = pathlib.Path(__file__).resolve()
+    vol_dirs = [here.parents[1] / 'assets' / 'chrome',
+                here.parents[2] / 'huoban-image-design' / 'assets' / 'chrome']
+    dest = pathlib.Path(os.path.expanduser('~/chrome-headless-shell-linux64'))
+    binp = dest / 'chrome-headless-shell'
+    for d in vol_dirs:
+        vols = sorted(d.glob('chs_vol_*'))
+        if not vols:
+            continue
+        tmpzip = pathlib.Path(tempfile.mkdtemp()) / 'chs.zip'
+        with open(tmpzip, 'wb') as w:
+            for v in vols:
+                with open(v, 'rb') as r:
+                    shutil.copyfileobj(r, w)
+        with zipfile.ZipFile(tmpzip) as z:
+            z.extractall(dest.parent)
+        tmpzip.unlink()
+        for root, _, files in os.walk(dest):
+            for f in files:
+                os.chmod(os.path.join(root, f), 0o755)
+        if binp.exists():
+            return str(binp)
+    return None
+
+
+def find_chrome():
+    """按顺序找可用 Chrome；都没有时自动解压 skill 内置分卷（见 references/chrome-env.md）。"""
+    cands = [
+        os.environ.get('CHROME_BIN'),
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        'chrome-headless-shell-linux64/chrome-headless-shell',
+        'work/chrome-headless-shell-linux64/chrome-headless-shell',
+        os.path.expanduser('~/chrome-headless-shell-linux64/chrome-headless-shell'),
+    ]
+    for c in cands:
+        if c and os.path.exists(c):
+            return c
+    for name in ('chrome-headless-shell', 'google-chrome', 'chromium', 'chromium-browser'):
+        p = shutil.which(name)
+        if p:
+            return p
+    c = _bootstrap_bundled_chrome()
+    if c:
+        return c
+    sys.exit('!! 找不到 Chrome，且未找到 skill 内置分卷。'
+             '请确认 huoban-image-design/assets/chrome/chs_vol_* 随 skill 一起分发，'
+             '或按 references/chrome-env.md 的备用方案处理，或设 CHROME_BIN 环境变量。')
+
+
+CHROME = find_chrome()
 PAGE_W = 794   # A4 宽 210mm @ 96dpi
 A4_H = 1123    # A4 高 297mm @ 96dpi
 

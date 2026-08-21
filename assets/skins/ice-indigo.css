@@ -1,0 +1,32 @@
+/* 报告皮肤：冰靛蓝。纯白到冷靛白的渐变底，亮靛蓝强调。互联网、电商、教育科技、创新创业等年轻科技感客户。
+   与 huoban-image-design 的 skins/ice-indigo.css 同名同气质。
+   用法：python3 scripts/apply_skin.py 报告.html ice-indigo */
+:root {
+  --paper: linear-gradient(165deg, #FFFFFF 0%, #F2F4FC 55%, #F0F3FC 100%);
+  --surface: #FFFFFF;
+  --ink: #1D2136;
+  --ink-soft: #494E66;
+  --muted: #7B8095;
+  --accent: #3E63DD;
+  --accent-soft: #E7ECFB;
+  --gold: #BE4A55;
+  --gold-soft: #FAE6E9;
+  --line: #E2E5F0;
+  --warn-bg: #F5F1E4;
+  --warn-edge: #B08A3C;
+}
+
+:root[data-theme="dark"] {
+  --paper: linear-gradient(165deg, #14151D 0%, #171A28 100%);
+  --surface: #1E2130;
+  --ink: #E5E7EE;
+  --ink-soft: #B6B9C6;
+  --muted: #7F8396;
+  --accent: #8FA6F0;
+  --accent-soft: #232A48;
+  --gold: #E08792;
+  --gold-soft: #332124;
+  --line: #2F3242;
+  --warn-bg: #2C2718;
+  --warn-edge: #C2A05C;
+}
